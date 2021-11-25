@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_074712) do
+ActiveRecord::Schema.define(version: 2021_11_25_103327) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -67,6 +67,12 @@ ActiveRecord::Schema.define(version: 2021_11_25_074712) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "phases", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", limit: 500
@@ -98,6 +104,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_074712) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id", null: false
+    t.integer "phase_id", null: false
+    t.index ["phase_id"], name: "index_tasks_on_phase_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
@@ -121,5 +129,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_074712) do
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
   add_foreign_key "sub_tasks", "tasks"
+  add_foreign_key "tasks", "phases"
   add_foreign_key "tasks", "projects"
 end

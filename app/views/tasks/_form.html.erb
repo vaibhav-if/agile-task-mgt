@@ -57,6 +57,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :phase %>
+    <%= form.collection_select :phase_id, Phase.all, :id, :title %>
+  </div>
+
+  <div class="field">
     <%= form.label :task_type %>
     <%= form.text_field :task_type %>
   </div>
