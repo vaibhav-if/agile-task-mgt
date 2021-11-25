@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_103327) do
+ActiveRecord::Schema.define(version: 2021_11_25_104713) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_103327) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.datetime "due_date"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "sub_tasks", force: :cascade do |t|
@@ -105,8 +107,10 @@ ActiveRecord::Schema.define(version: 2021_11_25_103327) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id", null: false
     t.integer "phase_id", null: false
+    t.integer "user_id", null: false
     t.index ["phase_id"], name: "index_tasks_on_phase_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,7 +132,9 @@ ActiveRecord::Schema.define(version: 2021_11_25_103327) do
   add_foreign_key "attachments", "tasks"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
+  add_foreign_key "projects", "users"
   add_foreign_key "sub_tasks", "tasks"
   add_foreign_key "tasks", "phases"
   add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
 end
