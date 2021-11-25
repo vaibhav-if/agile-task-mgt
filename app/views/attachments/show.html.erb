@@ -1,0 +1,15 @@
+<p>
+  <strong>Task:</strong>
+  <%= @attachment.task.title %>
+</p>
+
+<div>
+    <% @attachment.uploads.each do |upload| %>
+        <div>
+            <%= image_tag upload %>
+        </div>
+    <% end %>
+</div>
+
+<%= link_to 'Edit', edit_attachment_path(@attachment) %> |
+<%= link_to 'Back', attachments_path %>
