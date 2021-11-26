@@ -1,3 +1,9 @@
+<h2>Tasks</h2>
+<% for task in @project.tasks %>
+    <ul>
+      <li><%= task.title %></li>
+  </ul>
+<% end %>
 
 <p>
   <strong>Id:</strong>
@@ -30,4 +36,5 @@
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Add Task', project_tasks_path(@project) %> |
 <%= link_to 'Back', projects_path %>

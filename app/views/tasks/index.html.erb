@@ -36,9 +36,9 @@
         <td><%= task.user.email %></td>
         <td><%= task.phase.title %></td>
         <td><%= task.task_type %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', project_task_path #%></td>   #link to sub-task
+        <td><%= link_to 'Edit Task', edit_project_task_path(@project, task) %></td>
+        <td><%= link_to 'Destroy Task', [@project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,4 +46,5 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_project_task_path(@project) %>
+<%= link_to 'Back', projects_path %>
