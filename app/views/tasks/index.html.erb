@@ -13,7 +13,6 @@
       <th>Priority</th>
       <th>Due date</th>
       <th>Status</th>
-      <th>Project</th>
       <th>User</th>
       <th>Phase</th>
       <th>Task type</th>
@@ -32,11 +31,10 @@
         <td><%= task.priority %></td>
         <td><%= task.due_date %></td>
         <td><%= task.status %></td>
-        <td><%= task.project.title %></td>
         <td><%= task.user.email %></td>
         <td><%= task.phase.title %></td>
         <td><%= task.task_type %></td>
-        <td><%#= link_to 'Show', project_task_path #%></td>   #link to sub-task
+        <td><%= link_to 'Show', sub_tasks_path %></td> 
         <td><%= link_to 'Edit Task', edit_project_task_path(@project, task) %></td>
         <td><%= link_to 'Destroy Task', [@project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
