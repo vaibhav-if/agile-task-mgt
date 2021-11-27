@@ -4,7 +4,6 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
       <th>Title</th>
       <th>Description</th>
       <th>User</th>
@@ -17,13 +16,12 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.id %></td>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
         <td><%= project.user.email %></td>
         <td><%= project.status %></td>
         <td><%= project.due_date %></td>
-        <td><%= link_to 'Show', project_tasks_path(project.id) %></td>
+        <td><%= link_to 'Show Tasks', project_tasks_path(project) %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

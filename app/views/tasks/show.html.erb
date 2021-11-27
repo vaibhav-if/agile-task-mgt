@@ -60,5 +60,16 @@
   <%= @task.task_type %>
 </p>
 
+<p>
+  <strong>Comments:</strong> <br/>
+  <% for comment in @task.comments %>
+    <ul>
+      <li><%= comment.body %></li>
+    </ul>
+</p>
+
 <%= link_to 'Edit', edit_project_task_path(@project, @task) %> |
+<%= link_to 'Add Sub Task', task_sub_tasks_path(@task) %> |
+<%= link_to 'Add Comment', task_comments_path(@task) %> |
+<%= link_to 'Add Attachment', task_attachments_path(@task) %> |
 <%= link_to 'Back', project_tasks_path(@project) %>

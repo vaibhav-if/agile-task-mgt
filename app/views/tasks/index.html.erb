@@ -36,7 +36,7 @@
         <td><%= task.user.email %></td>
         <td><%= task.phase.title %></td>
         <td><%= task.task_type %></td>
-        <td><%#= link_to 'Show', project_task_path #%></td>   #link to sub-task
+        <td><%= link_to 'Show', project_task_sub_tasks_path(@project, task) %></td>
         <td><%= link_to 'Edit Task', edit_project_task_path(@project, task) %></td>
         <td><%= link_to 'Destroy Task', [@project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

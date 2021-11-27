@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.where(user_id:current_user.id)
   end
 
   # GET /projects/1 or /projects/1.json
@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project.user_id = current_user.id
 
     respond_to do |format|
       if @project.save
@@ -64,6 +65,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:id, :title, :description, :status, :due_date, :user_id)
+      params.require(:project).permit(:id, :title, :description, :status, :due_date)
     end
 end
