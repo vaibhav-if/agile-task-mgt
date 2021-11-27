@@ -18,9 +18,8 @@
         <td><%= sub_task.title %></td>
         <td><%= sub_task.status %></td>
         <td><%= sub_task.task.title %></td>
-        <td><%= link_to 'Show', sub_task %></td>
-        <td><%= link_to 'Edit', edit_sub_task_path(sub_task) %></td>
-        <td><%= link_to 'Destroy', sub_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit Sub-Task', edit_task_sub_task_path(@task, sub_task) %></td>
+        <td><%= link_to 'Delete Sub-Task', [@task, sub_task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +27,5 @@
 
 <br>
 
-<%= link_to 'New Sub Task', new_sub_task_path %>
+<%= link_to 'New Sub-Task', new_task_sub_task_path(@task) %>
+<%= link_to 'Back', project_tasks_path(@task) %>

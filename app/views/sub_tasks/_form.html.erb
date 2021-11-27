@@ -1,4 +1,4 @@
-<%= form_with(model: sub_task) do |form| %>
+<%= form_with(model: [@task, sub_task]) do |form| %>
   <% if sub_task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sub_task.errors.count, "error") %> prohibited this sub_task from being saved:</h2>
@@ -20,11 +20,6 @@
     <%= form.label :status %>
     <%= form.select :status, ["In-progress", "On-hold", "Completed"] %>
   </div>
-
-  <div class="field">
-   <%= form.label :task %>
-   <%= form.collection_select :task_id, Task.all, :id, :title %>
- </div>
 
   <div class="actions">
     <%= form.submit %>
