@@ -21,7 +21,7 @@
         <td><%= project.due_date %></td>
         <td><%= link_to 'Show Tasks', project_tasks_path(project) %></td>
         <td><%= link_to 'Edit Project', edit_project_path(project) %></td>
-        <td><%= link_to 'Delete Projec', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete Project', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

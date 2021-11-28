@@ -31,6 +31,12 @@
     <%= form.date_field :due_date %>
   </div>
 
+  <div class="field">
+    <%= form.label :Phases %>
+    <%= form.text_field :phases,
+    placeholder: "Phases seperated by comma" %>
+ </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

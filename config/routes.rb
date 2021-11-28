@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # resources :phases
+  resources :phases
   # resources :attachments
   # resources :comments
   devise_for :users
