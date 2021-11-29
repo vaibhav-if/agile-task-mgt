@@ -2,25 +2,19 @@
 <h2 class="text-uppercase">Log in</h2> <hr/>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= f.label :username %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
   </div>
 
-  <br/>
-
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Your password" %>
   </div>
 
-  <br/>
-
   <div class="actions d-grid gap-2">
     <%= f.submit "Log in", class: "btn btn-primary" %>
   </div>
-
-  <br/>
 
 <% end %>
 

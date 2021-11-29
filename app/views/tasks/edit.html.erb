@@ -1,6 +1,9 @@
-<h1>Editing Task</h1>
+<div class="container" style="width:40vw;">
+<br/>
+<h1>Editing Task</h1> <br/>
 
 <%= render 'form', task: @task %>
 
-<%= link_to 'Show', [@project, @task] %> |
+<%= link_to 'Show', [@project, @task] %> <br/>
 <%= link_to 'Back', project_tasks_path(@project) %>
+</div>

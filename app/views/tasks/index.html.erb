@@ -1,48 +1,31 @@
-<p id="notice"><%= notice %></p>
-
+<div class="container" style="width:90vw;">
 <h1>Tasks</h1>
+<div><%= link_to '<i class="bi bi-plus-circle-fill"></i> Create new task'.html_safe, new_project_task_path(@project), class: "btn btn-link" %>
+<%= link_to '<i class="bi bi-arrow-left"></i> Back to projects'.html_safe, projects_path %>
+</div>
+  <hr/>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Decription</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Story point</th>
-      <th>Priority</th>
-      <th>Due date</th>
-      <th>Status</th>
-      <th>User</th>
-      <th>Phase</th>
-      <th>Task type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.decription %></td>
-        <td><%= task.start_date %></td>
-        <td><%= task.end_date %></td>
-        <td><%= task.story_point %></td>
-        <td><%= task.priority %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.status %></td>
-        <td><%= task.user.email %></td>
-        <td><%= task.phase.title %></td>
-        <td><%= task.task_type %></td>
-        <td><%= link_to 'Show Sub Tasks', task_sub_tasks_path(task) %></td> 
-        <td><%= link_to 'Edit Task', edit_project_task_path(@project, task) %></td>
-        <td><%= link_to 'Delete Task', [@project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% @tasks.each do |task| %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h3 class="card-title"><%= task.title %></h3>
+        <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-check-fill"> </i><%= task.due_date %></h6>
+        <p class="card-text"><%= task.decription %></p>
+        <p class="card-text">Story Points <span class="badge bg-secondary"><%= task.story_point %></span></p>
+        <p class="card-text">Priority <span class="badge bg-danger"><%= task.priority %></span></p>
+        <p class="card-text"><i class="bi bi-person-fill"> </i><%= task.user.email %></span></p>
+        <p class="card-text">Task type: <%= task.task_type %></p>
+        <% if task.start_date && task.end_date %>
+        <p class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-fill"> </i><%= task.start_date %> to <%= task.end_date %></p>
+        <% end %>
+        <%= link_to '<i class="bi bi-view-list"></i> Show Sub Task'.html_safe, task_sub_tasks_path(task), class: "btn btn-link" %>
+        <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Task'.html_safe, edit_project_task_path(@project, task), class: "btn btn-link" %>
+        <%= link_to '<i class="bi bi-trash-fill"></i> Delete Task'.html_safe, [@project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+      </div>
+    </div>
+    <br/>
+  <% end %>
 
 <br>
 
-<%= link_to 'New Task', new_project_task_path(@project) %>
-<%= link_to 'Back', projects_path %>
+</div>

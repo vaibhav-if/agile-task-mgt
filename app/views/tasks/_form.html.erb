@@ -11,57 +11,59 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control",
+    placeholder: "Task's title" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :decription %>
-    <%= form.text_area :decription %>
+    <%= form.text_area :decription, class: "form-control",
+    placeholder: "Task's description" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :start_date %>
-    <%= form.date_field :start_date %>
+    <%= form.date_field :start_date, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :end_date %>
-    <%= form.date_field :end_date %>
+    <%= form.date_field :end_date, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :story_point %>
-    <%= form.number_field :story_point, step: :any %>
+    <%= form.number_field :story_point, step: :any, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :priority %>
     <%= form.select :priority, ["Low", "Medium", "High"] %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :due_date %>
-    <%= form.date_field :due_date %>
+    <%= form.date_field :due_date, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :status %>
     <%= form.select :status, ["In-progress", "On-hold", "Completed"] %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :phase %>
     <%= form.collection_select :phase_id, Phase.all, :id, :title %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= form.label :task_type %>
-    <%= form.text_field :task_type %>
-  </div>
+    <%= form.text_field :task_type, class: "form-control"  %>
+  </div> <br/>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions d-grid gap-2">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

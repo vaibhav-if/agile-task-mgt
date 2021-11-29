@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= form.label :title %>
     <%= form.text_field :title, class: "form-control",
     placeholder: "Project's title" %>
-  </div> <br/>
+  </div> 
 
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control",
     placeholder: "Project's description" %>
-  </div> <br/>
+  </div> 
 
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= form.label :status %>
     <%= form.select :status, ["In-progress", "On-hold", "Completed"], class: "form-select" %>
-  </div> <br/>
+  </div> 
 
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= form.label :due_date %>
     <%= form.date_field :due_date, class: "form-control" %>
-  </div> <br/>
+  </div> 
 
-  <div class="field form-group">
+  <div class="field mb-3">
     <%= form.label :Phases %>
     <%= form.text_field :phases,
     placeholder: "Phases seperated by comma", class: "form-control" %>
@@ -41,5 +41,5 @@
 
   <div class="actions d-grid gap-2">
     <%= form.submit "Submit", class: "btn btn-primary" %>
-  </div> <br/>
+  </div> 
 <% end %>
