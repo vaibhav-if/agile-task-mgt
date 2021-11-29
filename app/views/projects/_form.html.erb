@@ -11,33 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <%= form.text_field :title, class: "form-control",
+    placeholder: "Project's title" %>
+  </div> <br/>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <%= form.text_area :description, class: "form-control",
+    placeholder: "Project's description" %>
+  </div> <br/>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :status %>
-    <%= form.select :status, ["In-progress", "On-hold", "Completed"] %>
-  </div>
+    <%= form.select :status, ["In-progress", "On-hold", "Completed"], class: "form-select" %>
+  </div> <br/>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :due_date %>
-    <%= form.date_field :due_date %>
-  </div>
+    <%= form.date_field :due_date, class: "form-control" %>
+  </div> <br/>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :Phases %>
     <%= form.text_field :phases,
-    placeholder: "Phases seperated by comma" %>
- </div>
+    placeholder: "Phases seperated by comma", class: "form-control" %>
+ </div> <br/>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <div class="actions d-grid gap-2">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div> <br/>
 <% end %>
