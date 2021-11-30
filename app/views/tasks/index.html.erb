@@ -1,7 +1,7 @@
 <div class="container" style="width:90vw;">
 <h1>Tasks</h1>
-<div><%= link_to '<i class="bi bi-plus-circle-fill"></i> Create new task'.html_safe, new_project_task_path(@project), class: "btn btn-link" %>
-<%= link_to '<i class="bi bi-arrow-left"></i> Back to projects'.html_safe, projects_path %>
+<div><%= link_to '<i class="bi bi-plus-circle-fill"></i> Create new task'.html_safe, new_project_task_path(@project), class: "btn btn-light btn-outline-dark" %>
+<%= link_to '<i class="bi bi-arrow-left"></i> Back to projects'.html_safe, projects_path, class: "btn btn-light btn-outline-dark" %>
 </div>
   <hr/>
 
@@ -18,9 +18,9 @@
         <% if task.start_date && task.end_date %>
         <p class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-fill"> </i><%= task.start_date %> to <%= task.end_date %></p>
         <% end %>
-        <%= link_to '<i class="bi bi-view-list"></i> Show Sub Task'.html_safe, task_sub_tasks_path(task), class: "btn btn-link" %>
-        <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Task'.html_safe, edit_project_task_path(@project, task), class: "btn btn-link" %>
-        <%= link_to '<i class="bi bi-trash-fill"></i> Delete Task'.html_safe, [@project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+        <%= link_to '<i class="bi bi-view-list"></i> Show Sub Task'.html_safe, task_sub_tasks_path(task), class: "btn btn-light btn-outline-dark" %>
+        <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Task'.html_safe, edit_project_task_path(@project, task), class: "btn btn-light btn-outline-dark" %>
+        <%= link_to '<i class="bi bi-trash-fill"></i> Delete Task'.html_safe, [@project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-outline-dark" %>
       </div>
     </div>
     <br/>

@@ -3,7 +3,6 @@
 <h1>Editing Task</h1> <br/>
 
 <%= render 'form', task: @task %>
-
-<%= link_to 'Show', [@project, @task] %> <br/>
-<%= link_to 'Back', project_tasks_path(@project) %>
+<br/>
+<%= link_to 'Back', project_tasks_path(@project), class: "btn btn-dark"  %>
 </div>

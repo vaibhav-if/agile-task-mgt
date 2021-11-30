@@ -1,23 +1,30 @@
 <div class="container" style="width:90vw;">
   <h1>
     Projects 
-    <span class="badge bg-secondary"><%= @projects.size %></span>
+    <span class="badge bg-secondary rounded-pill"><%= @projects.size %></span>
   </h1> 
-  <div><%= link_to '<i class="bi bi-plus-circle-fill"></i> Create new project'.html_safe, new_project_path, class: "btn btn-link" %></div>
+  <div><%= link_to '<i class="bi bi-plus-circle-fill"></i> Create new project'.html_safe, new_project_path, class: "btn btn-light btn-outline-dark" %></div>
   <hr/>
 
-  <% @projects.each do |project| %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h3 class="card-title"><%= project.title %></h3>
-        <h6 class="card-subtitle mb-2 text-muted"><%= project.due_date %></h6>
-        <p class="card-text"><%= project.description %></p>
-        <%= link_to '<i class="bi bi-view-list"></i> Show Tasks'.html_safe, project_tasks_path(project), class: "btn btn-link" %>
-        <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Project'.html_safe, edit_project_path(project), class: "btn btn-link" %>
-        <%= link_to '<i class="bi bi-trash-fill"></i> Delete Project'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+  <div class="row">
+    <% @projects.each do |project| %>
+      <div class="col-sm-3">
+        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header"><%= project.status %></div> <br/>
+            <div class="card border-secondary mb-3" style="max-width: 16rem;">
+              <div class="card-body">
+                <h3 class="card-title"><%= project.title %></h3>
+                <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-check-fill"> </i><%= project.due_date %></h6>
+                <p class="card-text"><%= project.description %></p>
+                <%= link_to '<i class="bi bi-view-list"></i> Show Tasks'.html_safe, project_tasks_path(project), class: "btn btn-light btn-outline-dark" %>
+                <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Project'.html_safe, edit_project_path(project), class: "btn btn-light btn-outline-dark" %>
+                <%= link_to '<i class="bi bi-trash-fill"></i> Delete Project'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-outline-dark" %>
+              </div>
+            </div>
+          <br/>
+        </div>
       </div>
-    </div>
-    <br/>
-  <% end %>
+    <% end %>
+  </div>
 
 </div>
