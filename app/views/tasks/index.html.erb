@@ -5,27 +5,37 @@
 </div>
   <hr/>
 
-  <% @tasks.each do |task| %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h3 class="card-title"><%= task.title %></h3>
-        <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-check-fill"> </i><%= task.due_date %></h6>
-        <p class="card-text"><%= task.decription %></p>
-        <p class="card-text">Story Points <span class="badge bg-secondary"><%= task.story_point %></span></p>
-        <p class="card-text">Priority <span class="badge bg-danger"><%= task.priority %></span></p>
-        <p class="card-text"><i class="bi bi-person-fill"> </i><%= task.user.email %></span></p>
-        <p class="card-text">Task type: <%= task.task_type %></p>
-        <% if task.start_date && task.end_date %>
-        <p class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-fill"> </i><%= task.start_date %> to <%= task.end_date %></p>
-        <% end %>
-        <%= link_to '<i class="bi bi-view-list"></i> Show Sub Task'.html_safe, task_sub_tasks_path(task), class: "btn btn-light btn-outline-dark" %>
-        <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Task'.html_safe, edit_project_task_path(@project, task), class: "btn btn-light btn-outline-dark" %>
-        <%= link_to '<i class="bi bi-trash-fill"></i> Delete Task'.html_safe, [@project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-outline-dark" %>
+  <div class="row">
+    <% ["Todo", "In-Progress", "Completed"].each do |phase| %>
+      <div class="col-sm-4">
+        <div class="card text-dark bg-light mb-3" style="max-width: 22rem;">
+          <h5 class="card-header"><%= phase %></h5> <br/>
+            <% @tasks.each do |task| %>
+              <% if task.phase.title == phase %>
+                <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                  <div class="card-body">
+                    <h3 class="card-title"><%= task.title %></h3>
+                    <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-check-fill"> </i><%= task.due_date %></h6>
+                    <hr/>
+                    <p class="card-text"><%= task.decription %></p>
+                    <p class="card-text">Story Points <span class="badge bg-secondary"><%= task.story_point %></span></p>
+                    <p class="card-text">Priority <span class="badge bg-danger"><%= task.priority %></span></p>
+                    <p class="card-text"><i class="bi bi-person-fill"> </i><%= task.user.email %></span></p>
+                    <p class="card-text">Task type: <%= task.task_type %></p>
+                    <% if task.start_date && task.end_date %>
+                      <p class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-fill"> </i><%= task.start_date %> to <%= task.end_date %></p>
+                    <% end %>
+                    <%= link_to '<i class="bi bi-view-list"></i> Show Sub Task'.html_safe, task_sub_tasks_path(task), class: "btn btn-light btn-outline-dark" %>
+                    <%= link_to '<i class="bi bi-pencil-fill"></i> Edit Task'.html_safe, edit_project_task_path(@project, task), class: "btn btn-light btn-outline-dark" %>
+                    <%= link_to '<i class="bi bi-trash-fill"></i> Delete Task'.html_safe, [@project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-outline-dark" %>
+                  </div>
+                </div>
+                <br/>
+              <% end %>
+            <% end %>
+        </div>
       </div>
-    </div>
-    <br/>
-  <% end %>
-
-<br>
+    <% end %>
+  </div>
 
 </div>
