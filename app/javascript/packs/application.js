@@ -15,7 +15,3 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
-
-var alertNode = document.querySelector('.alert')
-var alert = bootstrap.Alert.getInstance(alertNode)
-alert.close()
