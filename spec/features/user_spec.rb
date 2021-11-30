@@ -24,4 +24,14 @@ RSpec.feature "Users", type: :feature do
     expect(current_path).to eq('/users/password/new')
     expect(page).to have_content('Forgot your password?')
   end
+
+  it 'new user signs up to the system' do
+    visit("/users/sign_up")
+    fill_in 'Email', with: 'abc@abc.com'
+    fill_in 'Password', with: '123456'
+    fill_in 'Password confirmation', with: '123456'
+    click_button('Sign up')
+    expect(current_path).to eq('/')
+    expect(page).to have_content 'Welcome! You have signed up successfully.'
+  end
 end
