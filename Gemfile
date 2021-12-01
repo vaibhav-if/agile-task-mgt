@@ -61,3 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #for resizing images
 gem "mini_magick"
+
+gem 'simplecov', require: false, group: :test
