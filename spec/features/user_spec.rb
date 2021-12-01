@@ -34,4 +34,14 @@ RSpec.feature "Users", type: :feature do
     expect(current_path).to eq('/')
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
+
+  # it 'existing user logs in to the system' do
+  #   register_and_logout_with_warden do
+  #     fill_in 'Email', with: 'abc@abc.com'
+  #     fill_in 'Password', with: '123456'
+  #     click_button('Log in')
+  #     expect(current_path).to eq('/')
+  #     expect(page).to have_content 'Signed in successfully.'
+  #   end
+  # end
 end
