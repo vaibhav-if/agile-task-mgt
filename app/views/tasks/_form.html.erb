@@ -55,7 +55,7 @@
 
   <div class="field mb-3">
     <%= form.label :phase %>
-    <%= form.collection_select :phase_id, Phase.all, :id, :title %>
+    <%= form.collection_select :phase_id, @project.phases, :id, :title %>
   </div>
 
   <div class="field mb-3">

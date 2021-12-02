@@ -6,10 +6,10 @@
   <hr/>
 
   <div class="row">
-    <% @project.phases.split(",").each do |phase| %>
+    <% @project.phases.each do |phase| %>
       <div class="col-sm-4">
         <div class="card text-dark bg-light mb-3" style="max-width: 22rem;">
-          <h5 class="card-header"><%= phase %></h5> <br/>
+          <h5 class="card-header"><%= phase.title %></h5> <br/>
             <% @tasks.each do |task| %>
               <% if task.phase.title == phase %>
                 <div class="card border-secondary mb-3" style="max-width: 18rem;">
