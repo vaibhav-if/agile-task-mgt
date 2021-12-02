@@ -69,7 +69,7 @@ RSpec.feature "Projects", type: :feature do
         fill_in 'Title', with: 'Rails'
         fill_in 'Description', with: 'Some description regarding rails'
         fill_in 'Due date', with: '15/12/2021'
-        fill_in 'Phases', with: 'ToDo, In-progress, Completed'
+        fill_in 'project_all_phases', with: 'ToDo, In-progress, Completed'
         click_button('Submit')
         expect(current_path).to eq('/projects')
         expect(page).to have_content("Project was successfully created.")
@@ -83,7 +83,7 @@ RSpec.feature "Projects", type: :feature do
         click_link('Create new project')
         fill_in 'Description', with: 'Some description regarding rails'
         fill_in 'Due date', with: '15/12/2021'
-        fill_in 'Phases', with: 'ToDo, In-progress, Completed'
+        fill_in 'project_all_phases', with: 'ToDo, In-progress, Completed'
         click_button('Submit')
         expect(page).to have_content("error prohibited this project from being saved")
       end
@@ -96,7 +96,7 @@ RSpec.feature "Projects", type: :feature do
         fill_in 'Title', with: 'Rails'
         fill_in 'Description', with: 'Some description regarding rails'
         fill_in 'Due date', with: '15/12/2021'
-        fill_in 'Phases', with: 'ToDo, In-progress, Completed'
+        fill_in 'project_all_phases', with: 'ToDo, In-progress, Completed'
         click_button('Submit')
         click_link('Show Tasks')
         expect(current_path).to eq('/projects/1/tasks')
@@ -111,7 +111,7 @@ RSpec.feature "Projects", type: :feature do
         fill_in 'Title', with: 'Rails'
         fill_in 'Description', with: 'Some description regarding rails'
         fill_in 'Due date', with: '15/12/2021'
-        fill_in 'Phases', with: 'ToDo, In-progress, Completed'
+        fill_in 'project_all_phases', with: 'ToDo, In-progress, Completed'
         click_button('Submit')
         click_link('Edit Project')
         expect(current_path).to eq('/projects/1/edit')
@@ -126,7 +126,7 @@ RSpec.feature "Projects", type: :feature do
         fill_in 'Title', with: 'Rails'
         fill_in 'Description', with: 'Some description regarding rails'
         fill_in 'Due date', with: '15/12/2021'
-        fill_in 'Phases', with: 'ToDo, In-progress, Completed'
+        fill_in 'project_all_phases', with: 'ToDo, In-progress, Completed'
         click_button('Submit')
         click_link('Edit Project')
         fill_in 'Title', with: 'Agile'
@@ -143,7 +143,7 @@ RSpec.feature "Projects", type: :feature do
         fill_in 'Title', with: 'Rails'
         fill_in 'Description', with: 'Some description regarding rails'
         fill_in 'Due date', with: '15/12/2021'
-        fill_in 'Phases', with: 'ToDo, In-progress, Completed'
+        fill_in 'project_all_phases', with: 'ToDo, In-progress, Completed'
         click_button('Submit')
         click_link('Delete Project')
         expect(page).to have_content("Project was successfully destroyed.")

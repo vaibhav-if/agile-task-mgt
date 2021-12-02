@@ -11,7 +11,7 @@
         <div class="card text-dark bg-light mb-3" style="max-width: 22rem;">
           <h5 class="card-header"><%= phase.title %></h5> <br/>
             <% @tasks.each do |task| %>
-              <% if task.phase.title == phase %>
+              <% if task.phase.title == phase.title %>
                 <div class="card border-secondary mb-3" style="max-width: 18rem;">
                   <div class="card-body">
                     <h3 class="card-title"><%= task.title %></h3>

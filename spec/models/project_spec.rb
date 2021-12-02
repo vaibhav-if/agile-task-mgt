@@ -21,7 +21,7 @@ RSpec.describe Project, type: :model do
     end
 
     it 'ensures phases presence' do 
-      project.phases = nil
+      project.all_phases = nil
       expect(project.save).to eq(false)
     end
 
@@ -29,7 +29,7 @@ RSpec.describe Project, type: :model do
       project.title = "Rails"
       project.status = "Todo"
       project.due_date = "15/11/2021"
-      project.phases = "Todo, Completed"
+      project.all_phases = "Todo, Completed"
       project.user_id = user.id
       expect(project.save!).to eq(true)
     end

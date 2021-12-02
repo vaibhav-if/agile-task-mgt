@@ -5,7 +5,7 @@ RSpec.describe Task, type: :model do
     let(:task) { Task.new }
     let(:phase) { Phase.create(title: "Todo") } 
     let(:user) { User.create!(email: "abcd@abcd.com", password: "123456") }
-    let(:project) { Project.create!(title: "Rails", status: "In-rogress", due_date: "20/12/2021", phases: "ToDo, In-progress, Completed", user_id: user.id) } 
+    let(:project) { Project.create!(title: "Rails", status: "In-rogress", due_date: "20/12/2021", all_phases: "ToDo, In-progress, Completed", user_id: user.id) } 
 
     it 'ensures title presence' do 
       task.title = nil

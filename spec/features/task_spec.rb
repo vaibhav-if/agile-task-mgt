@@ -7,7 +7,7 @@ def create_new_project_for_task_helper
     fill_in 'Title', with: 'Rails'
     fill_in 'Description', with: 'Some description regarding rails'
     fill_in 'Due date', with: '15/12/2021'
-    fill_in 'Phases', with: 'Todo, In-progress, Completed'
+    fill_in 'project_all_phases', with: 'Todo, In-progress, Completed'
     click_button('Submit')
     click_link('Show Tasks')
     yield

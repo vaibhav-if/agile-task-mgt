@@ -3,7 +3,7 @@ class Project < ApplicationRecord
     has_many :tasks, dependent: :destroy
     belongs_to :user
     has_many :phasings
-    has_many :phases, through: :phasings
+    has_many :phases, through: :phasings, dependent: :destroy
     validates :title, presence: true
     validates :status, presence: true
     validates :due_date, presence: true
