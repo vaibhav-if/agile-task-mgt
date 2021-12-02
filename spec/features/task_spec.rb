@@ -9,20 +9,6 @@ def create_new_project_for_task_helper
     fill_in 'Due date', with: '15/12/2021'
     fill_in 'Phases', with: 'ToDo, In-progress, Completed'
     click_button('Submit')
-    visit("/phases")
-    click_link('New Phase')
-    fill_in 'Title', with: 'Todo'
-    click_button('Create Phase')
-    click_link('Back')
-    click_link('New Phase')
-    fill_in 'Title', with: 'In-progress'
-    click_button('Create Phase')
-    click_link('Back')
-    click_link('New Phase')
-    fill_in 'Title', with: 'Completed'
-    click_button('Create Phase')
-    click_link('Back')
-    visit("/projects")
     click_link('Show Tasks')
     yield
   end
@@ -83,6 +69,13 @@ RSpec.feature "Tasks", type: :feature do
   end
 
   describe "creating new tasks, editing and deleting" do
+    before :each do
+      Phase.create!(title: "Todo")
+      Phase.create!(title: "In-progress")
+      Phase.create!(title: "Completed")
+    end
+
+
     it "enables user to fill form and create a new task" do 
       create_new_project_for_task_helper do
         click_link('Create new task')
